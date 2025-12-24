@@ -6,23 +6,29 @@
 
 
 
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trampoline : MonoBehaviour
-{
-      public float jumpFactor = 2.5f;
+  public class Trampoline : MonoBehaviour
+  {
+    
+    public float jumpFactor = 2.5f;
 
     void OnTriggerEnter(Collider other)
     {
-        //Увеличение скорости бега игрока
-        other.GetComponent<FirstPersonMovement>().runSpeed *= speedFactor;
+        //Увеличение прыжка игрока
+        other.GetComponent<jump>().jumpstrength *= jumpFactor;
     }
 
     void OnTriggerExit(Collider other)
     {
-        //Уменьшение скорости бега игрока
-        other.GetComponent<FirstPersonMovement>().runSpeed /= speedFactor;
+        //Уменьшение скорости прыжка бега игрока
+        other.GetComponent<jump>().jumpStrength /= jumpFactor;
     }
 }
+
